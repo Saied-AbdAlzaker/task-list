@@ -1,0 +1,79 @@
+<!-- Array -->
+<section class="card m-3 p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="example-container">
+                    <h2 class="text-center text-bg-dark rounded-4 p-2">To Do</h2>
+
+                    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+                        [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="example-container">
+                    <h2 class="text-center text-bg-dark rounded-4 p-2">Done</h2>
+
+                    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+                        [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- json (https://dummyjson.com/users) -->
+<section class="card m-3 p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="example-container">
+                    <h2 class="text-center text-bg-dark rounded-4 p-2">To Do</h2>
+
+                    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo1"
+                        [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of todo1" cdkDrag>{{item.usrname}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="example-container">
+                    <h2 class="text-center text-bg-dark rounded-4 p-2">Done</h2>
+
+                    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done1"
+                        [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of done1" cdkDrag>{{item.username}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- mat-selection-list -->
+<section class="my-3 card m-3 p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="text-center text-bg-dark rounded-4 shadow-sm p-2 mb-2">
+                    <h3>Tasks</h3>
+                </div>
+                <div class="page-header fs-5">
+                    <mat-selection-list #shoes>
+                        <mat-list-option *ngFor="let shoe of typesOfShoes">
+                            {{shoe}}
+        
+                        </mat-list-option>
+                    </mat-selection-list>
+        
+                    <p>
+                        Task Complete: {{shoes.selectedOptions.selected.length}}
+                    </p>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
